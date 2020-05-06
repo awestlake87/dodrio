@@ -421,7 +421,7 @@ impl VdomWeak {
 
         let future = self.render();
 
-        wasm_bindgen_futures::spawn_local(async move {
+        wasm_bindgen_futures::spawn_local_high_priority(async move {
             let _ = future.await;
         });
     }
